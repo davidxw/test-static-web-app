@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [data, setData] = useState('');
+  
+  useEffect(() => {
+    (async function () {
+      const { text } = await (await fetch(`/api/message`)).json();
+      setData(text);
+    })();
+  });
+
   const value = 'World';
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
@@ -10,6 +19,9 @@ function App() {
         </h1>
         <p className="mt-3 text-slate-600 text-lg">
           It's great to be here.
+        </p>
+        <p>
+          API returned message: {data}
         </p>
       </div>
     </div>
