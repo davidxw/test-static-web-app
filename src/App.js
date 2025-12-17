@@ -50,20 +50,21 @@ function App() {
           </button>
 
           <div className="mt-4 text-left">
-            {durationMs !== null && (
-              <div className="text-sm text-slate-500">Time taken: {durationMs} ms</div>
-            )}
 
             {error && (
-              <div className="mt-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
+              <div className="mt-2 mb-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
                 {error}
               </div>
             )}
 
             {data && (
-              <pre className="mt-2 overflow-auto rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800">
+              <pre className="mt-2 mb-2 overflow-auto rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800">
                 {data}
               </pre>
+            )}
+
+            {durationMs !== null && (
+              <div className="text-sm text-slate-500">Time taken: {durationMs} ms</div>
             )}
           </div>
         </div>
